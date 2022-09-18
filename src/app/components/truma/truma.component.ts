@@ -58,8 +58,10 @@ export class TrumaComponent implements OnInit {
   }
 
   ngOnChanges(changes: any): void {
+
 console.log('isEdit', this.isEditState);
 console.log('changes', changes);
+
     if (this.isEditState) {
       this.form?.enable();
     } else {
