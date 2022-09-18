@@ -1,0 +1,7 @@
+div > button + button {
+    margin-right: 10px;
+}
+
+::ng-deep .mat-form-field-required-marker{
+    color: red;
+}

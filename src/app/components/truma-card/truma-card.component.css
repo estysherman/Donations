@@ -1,0 +1,17 @@
+.container-card {
+    width: 80%;
+    margin: auto;
+}
+
+:host ::ng-deep .small-field {
+    width: 20%;
+    margin-left: 2.5%;
+}
+
+:host ::ng-deep .medium-field {
+    width: 55%;
+}
+
+:host ::ng-deep .large-field {
+    width: 100%;
+}

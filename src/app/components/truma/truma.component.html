@@ -1,0 +1,58 @@
+        <form [formGroup]="form" >
+            <mat-form-field class="small-field" appearance="outline">
+                <mat-label>שם הישות המדינית הזרה</mat-label>
+                <input matInput id="shemYeshutMedinitZara" formControlName="shemYeshutMedinitZara" placeholder="שם הישות המדינית הזרה" >
+                <mat-error *ngIf="hasError('shemYeshutMedinitZara', 'required')">שדה חובה</mat-error>
+                <mat-error *ngIf="hasError('shemYeshutMedinitZara', 'pattern')">ניתן להזין תווים בעברית ובאנגלית בלבד.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="small-field" appearance="outline">
+                <mat-label>סכום התרומה בשח</mat-label>
+                <input matInput formControlName="schum" placeholder="סכום התרומה בשח" type="number">
+                <mat-error *ngIf="hasError('schum', 'required')">שדה חובה</mat-error>
+                <!-- <mat-error *ngIf="hasError('schum', 'pattern')">ניתן להזין מספר עשרוני בלבד.</mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="medium-field" appearance="outline">
+                <mat-label>סוג הישות המדינית הזרה</mat-label>
+                <mat-select formControlName="sugYeshutMedinitZara">
+                    <mat-option *ngFor="let yeshut of yeshuiot" [value]="yeshut.Id">
+                    {{yeshut.Shem}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('sugYeshutMedinitZara', 'required')">שדה חובה</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="large-field" appearance="outline">
+                <mat-label>יעוד התרומה</mat-label>
+                <input matInput formControlName="yeud" placeholder="יעוד התרומה">
+                <mat-error *ngIf="hasError('yeud', 'required')">שדה חובה</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="large-field" appearance="outline">
+                <mat-label>התנאים לתרומה</mat-label>
+                <input matInput formControlName="tnaim" placeholder="התנאים לתרומה">
+            </mat-form-field>
+
+            <mat-form-field class="small-field" appearance="outline">
+                <mat-label>סוג המטבע</mat-label>
+                <mat-select formControlName="sugMatbea">
+                    <mat-option *ngFor="let matbea of sugMatbea" [value]="matbea.Id">
+                        {{matbea.ShemMatbea}}
+                        </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('sugMatbea', 'required')">שדה חובה</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="small-field" appearance="outline">
+                <mat-label>שער ההמרה</mat-label>
+                <input matInput formControlName="shaarHamara" placeholder="שער ההמרה">
+                <mat-error *ngIf="hasError('shaarHamara', 'required')">שדה חובה</mat-error>
+            </mat-form-field>
+
+            <div align="end">
+                <button class="light-button" (click)="resetForm()" [disabled]="!isEditState">ניקוי</button>
+                <button class="dark-button" type="submit" (click)="submitTruma()" [disabled]="(!isEditState || !form.valid)">שמירה</button>
+            </div>
+            
+        </form>

@@ -1,0 +1,23 @@
+<div class="container">
+    <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel *ngFor="let truma of trumot">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            {{truma.shemYeshutMedinitZara}}
+            </mat-panel-title>
+            <mat-panel-description>
+            {{truma.schum}}
+            <mat-icon (click)="truma.isEdit = !truma.isEdit;$event.stopPropagation();">edit</mat-icon>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <app-truma [truma]="truma" [isEditState]="truma.isEdit"></app-truma>
+        
+        </mat-expansion-panel>    
+    </mat-accordion>
+    <div align="end">
+        <button class="dark-button" (click)="addTruma()">הוספת תרומה</button>
+    </div>    
+</div>
+
+  
